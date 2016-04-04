@@ -64,7 +64,7 @@ mask_secrets = True
 
 [system_user]
 user = {{ stackstorm_ssh_info.user }}
-ssh_key_file = /home/stanley/.ssh/{{ stackstorm_ssh_info.user }}_rsa
+ssh_key_file = /home/{{ stackstorm_ssh_info.user }}/.ssh/{{ stackstorm_ssh_info.user }}_rsa
 
 [messaging]
 url = amqp://guest:guest@localhost:5672/
