@@ -5,21 +5,17 @@
     state: present
   when: ansible_distribution != "Fedora"
 
-- name: redhat | installing dependencies
-  yum:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - 'dnf'
-    - 'python-devel'
-    - 'python-dnf'
-    - 'python-pip'
-  when: ansible_distribution != "Fedora"
-
 - name: redhat | installing nginx
   dnf:
     name: "nginx"
     state: present
+  when: ansible_distribution == "Fedora"
+
+- name: redhat | Installing NGINX
+  yum:
+    name: "nginx"
+    state: "present"
+  when: ansible_distribution != "Fedora"
 
 - name: redhat | ensuring nginx is started and enabled on boot
   service:

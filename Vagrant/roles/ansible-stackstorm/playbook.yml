@@ -1,9 +1,9 @@
 ---
-- hosts: test-nodes
+- hosts: test_nodes
   become: true
   vars:
-    - pri_domain_name: 'test.vagrant.local'
-    - stackstorm_install_packs: false
+    pri_domain_name: 'test.vagrant.local'
+    stackstorm_install_packs: true
   roles:
     - role: ansible-mongodb
     - role: ansible-nginx

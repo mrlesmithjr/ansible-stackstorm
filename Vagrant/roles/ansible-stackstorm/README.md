@@ -1,16 +1,18 @@
 Role Name
 =========
 
-Installs StackStorm Community Edition (https://stackstorm.com/)  
-###### StackStorm is an event-driven automation platform that ties together every component of your environment.
+An [Ansible] role to install/configure [StackStorm] Community Edition
+
+[StackStorm] is an event-driven automation platform that ties
+together every component of your environment.
 
 Requirements
 ------------
 
-Install Ansible required roles...  
-````
+Install [Ansible] required roles...  
+```
 sudo ansible-galaxy install -r requirements.yml
-````
+```
 
 Role Variables
 --------------
@@ -34,24 +36,44 @@ stackstorm_debian_repo_info:
   repos:
     - 'deb https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
     - 'deb-src https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
-stackstorm_install_packs: true  #defines if packs defined should be installed
+
+# Defines if packs defined should be installed
+stackstorm_install_packs: true
+
 stackstorm_packs:
-  - name: ansible
+    # st2 content pack containing ansible integrations
+  - name: 'ansible'
     installed: true
-  - name: docker
+    # st2 content pack containing docker integrations
+  - name: 'docker'
     installed: true
-  - name: elasticsearch
+    # st2 elasticsearch integration pack
+  - name: 'elasticsearch'
+    installed: false
+    # st2 content pack containing github integrations
+  - name: 'github'
     installed: true
-  - name: github
+    # Jenkins CI Integration Pack
+  - name: 'jenkins'
+    installed: false
+    # A StackStorm pack for working with network devices using the NAPALM library
+  - name: 'napalm'
     installed: true
-  - name: jenkins
+    # StackStorm integration with Nest Thermostats
+  - name: 'nest'
+    installed: false
+    # A pack containing useful networking utils for use in workflows.
+  - name: 'networking_utils'
     installed: true
-  - name: nest
-    installed: true
-  - name: sensu
-    installed: true
-  - name: urbandict
-    installed: true
+    # st2 content pack containing sensu integrations
+  - name: 'sensu'
+    installed: false
+    # st2 content pack containing slack integrations
+  - name: 'slack'
+    installed: false
+    # st2 content pack containing urban dictionary integrations
+  - name: 'urbandict'
+    installed: false
 stackstorm_ssh_info:
   user: 'stanley'
 stackstorm_ssl_info:
@@ -67,41 +89,27 @@ stackstorm_webui_login_info:
 Dependencies
 ------------
 
-Follow install instructions under requirements to install required  
-Ansible roles below.  
-````
-ansible-mongodb
-ansible-nginx
-ansible-postgresql
-ansible-rabbitmq
-ansible-stackstorm
-````
+None
 
 Example Playbook
 ----------------
 
-````
-- hosts: test-nodes
-  become: true
-  vars:
-    - pri_domain_name: 'test.vagrant.local'
-  roles:
-    - role: ansible-mongodb
-    - role: ansible-nginx
-    - role: ansible-postgresql
-    - role: ansible-rabbitmq
-    - role: ansible-stackstorm
-  tasks:
-````
-Vagrant
+[Vagrant]
 -------
-Spin up StackStorm using Vagrant.
+Spin up [StackStorm] using [Vagrant].
 ```
 cd Vagrant
 vagrant up
 ```
-You should now be able to connet to https://192.168.202.200
-`st2admin\Ch@ngeMe`
+You should now be able to connect to https://192.168.250.10
+
+Login using: `st2admin\Ch@ngeMe`
+
+When you are all done testing using [Vagrant] you can easily tear down and
+cleanup:
+```
+./cleanup.sh
+```
 
 License
 -------
@@ -115,3 +123,7 @@ Larry Smith Jr.
 - @mrlesmithjr
 - http://everythingshouldbevirtual.com
 - mrlesmithjr [at] gmail.com
+
+[Ansible]: <https://www.ansible.com>
+[StackStorm]: <https://stackstorm.com/>
+[Vagrant]: <https://www.vagrantup.com/>
