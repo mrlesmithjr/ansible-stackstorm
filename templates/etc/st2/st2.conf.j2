@@ -23,14 +23,14 @@ port = {{ stackstorm_auth.port }}
 use_ssl = {{ stackstorm_auth.use_ssl }}
 
 [database]
-db_name = {{ stackstorm_mongodb.db_name }}
-host = {{ stackstorm_mongodb.host }}
-{% if stackstorm_mongodb.password is defined and stackstorm_mongodb.password != '' %}
-password = {{ stackstorm_mongodb.password }}
+db_name = {{ stackstorm_database.db }}
+host = {{ stackstorm_database.host }}
+{% if stackstorm_database.password is defined and stackstorm_database.password != '' %}
+password = {{ stackstorm_database.password }}
 {% endif %}
-port = {{ stackstorm_mongodb.port }}
-{% if stackstorm_mongodb.username is defined and stackstorm_mongodb.username != '' %}
-username = {{ stackstorm_mongodb.username }}
+port = {{ stackstorm_database.port }}
+{% if stackstorm_database.username is defined and stackstorm_database.username != '' %}
+username = {{ stackstorm_database.username }}
 {% endif %}
 
 [exporter]

@@ -44,6 +44,16 @@ stackstorm_auth:
 
 stackstorm_config_stackstorm: true
 
+# Defines MongoDB settings
+stackstorm_database:
+  db: 'st2'
+  # Supports MongoDB Replica Sets
+  # host = mongodb://<#MDB_NODE_1>,<#MDB_NODE_2>,<#MDB_NODE_3>/?replicaSet=<#MDB_REPLICA_SET_NAME>
+  host: '127.0.0.1'
+  port: '27017'
+  # username: ''
+  # password: ''
+
 stackstorm_db_info:
   user: 'mistral'
   password: 'StackStorm'
@@ -87,15 +97,6 @@ stackstorm_messaging:
   password: 'guest'
   port: '5672'
   username: 'guest'
-
-stackstorm_mongodb:
-  db_name: 'st2'
-  # Supports MongoDB Replica Sets
-  # host = mongodb://<#MDB_NODE_1>,<#MDB_NODE_2>,<#MDB_NODE_3>/?replicaSet=<#MDB_REPLICA_SET_NAME>
-  host: '127.0.0.1'
-  port: '27017'
-  # username: ''
-  # password: ''
 
 stackstorm_notifier:
   logging: '/etc/st2/logging.notifier.conf'
