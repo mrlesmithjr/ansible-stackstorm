@@ -16,24 +16,44 @@ stackstorm_debian_repo_info:
   repos:
     - 'deb https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
     - 'deb-src https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
-stackstorm_install_packs: true  #defines if packs defined should be installed
+
+# Defines if packs defined should be installed
+stackstorm_install_packs: true
+
 stackstorm_packs:
-  - name: ansible
+    # st2 content pack containing ansible integrations
+  - name: 'ansible'
     installed: true
-  - name: docker
+    # st2 content pack containing docker integrations
+  - name: 'docker'
     installed: true
-  - name: elasticsearch
+    # st2 elasticsearch integration pack
+  - name: 'elasticsearch'
+    installed: false
+    # st2 content pack containing github integrations
+  - name: 'github'
     installed: true
-  - name: github
+    # Jenkins CI Integration Pack
+  - name: 'jenkins'
+    installed: false
+    # A StackStorm pack for working with network devices using the NAPALM library
+  - name: 'napalm'
     installed: true
-  - name: jenkins
+    # StackStorm integration with Nest Thermostats
+  - name: 'nest'
+    installed: false
+    # A pack containing useful networking utils for use in workflows.
+  - name: 'networking_utils'
     installed: true
-  - name: nest
-    installed: true
-  - name: sensu
-    installed: true
-  - name: urbandict
-    installed: true
+    # st2 content pack containing sensu integrations
+  - name: 'sensu'
+    installed: false
+    # st2 content pack containing slack integrations
+  - name: 'slack'
+    installed: false
+    # st2 content pack containing urban dictionary integrations
+  - name: 'urbandict'
+    installed: false
 stackstorm_ssh_info:
   user: 'stanley'
 stackstorm_ssl_info:

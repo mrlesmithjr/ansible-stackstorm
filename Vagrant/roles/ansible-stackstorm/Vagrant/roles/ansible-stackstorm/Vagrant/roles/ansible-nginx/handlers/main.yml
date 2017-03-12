@@ -5,7 +5,12 @@
     name: "nginx"
     state: "restarted"
 
-- name: "restart php{{ nginx_php_ver }}-fpm"
+- name: "restart php5-fpm"
   service:
-    name: "php{{ nginx_php_ver }}-fpm"
+    name: "php5-fpm"
+    state: "restarted"
+
+- name: "restart php7.0-fpm"
+  service:
+    name: "php7.0-fpm"
     state: "restarted"
