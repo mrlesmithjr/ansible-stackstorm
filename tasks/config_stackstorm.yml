@@ -9,6 +9,7 @@
   notify:
     - "restart stackstorm"
     - "reload stackstorm"
+  when: stackstorm_config_stackstorm
 
 - name: config_stackstorm | Checking Stackstorm Services Status
   command: "st2ctl status"
@@ -22,7 +23,7 @@
 
 - name: config_stackstorm | waiting for services
   wait_for:
-    port: 9100
+    port: "{{ stackstorm_api.port }}"
     delay: 10
   when: stackstorm_started.changed
 
