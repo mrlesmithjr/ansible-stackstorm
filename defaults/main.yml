@@ -126,7 +126,7 @@ stackstorm_sensor_container:
   logging: '/etc/st2/logging.sensorcontainer.conf'
 
 stackstorm_ssh_info:
-  key_file: '/home/stanley/.ssh/stanley_rsa'
+  key_file: '/home/{{ stackstorm_user }}/.ssh/{{ stackstorm_user }}_rsa'
   user: '{{ stackstorm_user }}'
 
 stackstorm_ssl_info:
