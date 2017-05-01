@@ -1,4 +1,10 @@
 ---
+- name: debian | Installing CA-Certs
+  apt:
+    name: "ca-certificates"
+    state: "present"
+  become: true
+
 - name: debian | Adding Stackstorm Repo Key
   apt_key:
     url: "{{ stackstorm_debian_repo_info.repo_key }}"
