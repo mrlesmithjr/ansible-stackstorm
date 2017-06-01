@@ -50,8 +50,8 @@ stackstorm_debian_packages:
 stackstorm_debian_repo_info:
   repo_key: 'https://packagecloud.io/StackStorm/staging-stable/gpgkey'
   repos:
-    - 'deb https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
-    - 'deb-src https://packagecloud.io/StackStorm/staging-stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
+    - 'deb https://packagecloud.io/StackStorm/stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
+    - 'deb-src https://packagecloud.io/StackStorm/stable/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release|lower }} main'
 
 stackstorm_exporter:
   logging: '/etc/st2/logging.exporter.conf'
