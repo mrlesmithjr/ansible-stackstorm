@@ -4,4 +4,3 @@
 - src: https://github.com/mrlesmithjr/ansible-nodejs.git
 - src: https://github.com/mrlesmithjr/ansible-postgresql.git
 - src: https://github.com/mrlesmithjr/ansible-rabbitmq.git
-- src: https://github.com/mrlesmithjr/ansible-stackstorm.git
